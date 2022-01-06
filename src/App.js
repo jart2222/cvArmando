@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import {Outlet } from "react-router-dom";
+import React from "react";
+import { Box, Grid } from "@mui/material";
+import ImagenPerfil from "./components/imagenPerfil";
+import BarraMenu from "./components/barraMenu";
+import "./styles/App.css"
 
-function App() {
+
+export default function App() {
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={1}>
+        <Grid item xs={12} md={12}>
+        <ImagenPerfil></ImagenPerfil>
+        </Grid>
+        <Grid item xs={0} sm={3}>
+          {/* espaciado */}
+        </Grid>
+        <Grid item xs={12} sm={6}>
+        <BarraMenu></BarraMenu>         
+        </Grid>
+          {/* espaciado */}
+        <Grid item xs={0} sm={3}>
+        </Grid>
+      </Grid>
+    </Box>
+      
+      <Outlet></Outlet>
     </div>
   );
 }
-
-export default App;
